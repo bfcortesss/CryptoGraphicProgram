@@ -1,1 +1,1 @@
-# CrytoGraphic-Program
+# CryptoGraphicProgram
