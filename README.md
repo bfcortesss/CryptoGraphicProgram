@@ -190,7 +190,7 @@ echo "All programs compiled successfully!"
 
 ```bash
 cd KeyGen
-java KeyGen.KeyGen
+java KeyGen.java
 ```
 
 **Prompt**: Enter a 16-character AES key
@@ -246,7 +246,7 @@ cp ../Sender/message.aescipher .
 cp ../Sender/kxy.rsacipher .
 
 # Run receiver program
-java Receiver.Receiver
+java Receiver.java
 ```
 
 **Prompt**: `Input the name of the message file:` → Enter output filename
@@ -266,7 +266,7 @@ Decrypted message saved to: output.txt
 
 ```bash
 # 1. Generate keys
-cd KeyGen && java KeyGen.KeyGen
+cd KeyGen && java KeyGen.java
 # Input: MySecretKey12345
 
 # 2. Create test message
@@ -274,13 +274,13 @@ cd ../Sender
 echo "Hello, secure world!" > test_message.txt
 
 # 3. Encrypt
-java Sender.Sender
+java Sender.java
 # Input: test_message.txt
 # Invert byte: N
 
 # 4. Decrypt and verify
 cd ../Receiver
-java Receiver.Receiver
+java Receiver.java
 # Output file: decrypted.txt
 
 # 5. Verify files match
@@ -349,8 +349,8 @@ diff decrypted.txt ../Sender/test_message.txt
 echo "This is a test message." > test.txt
 
 # Run through system
-cd Sender && java Sender.Sender  # Input: test.txt, Invert: N
-cd ../Receiver && java Receiver.Receiver  # Output: out.txt
+cd Sender && java Sender.java  # Input: test.txt, Invert: N
+cd ../Receiver && java Receiver.java  # Output: out.txt
 
 # Verify
 diff out.txt ../Sender/test.txt  # Should be identical
@@ -368,7 +368,7 @@ dd if=/dev/urandom of=large.bin bs=1M count=10
 
 # Encrypt and decrypt
 cd Sender && java Sender.Sender  # Input: large.bin
-cd ../Receiver && java Receiver.Receiver  # Output: large_out.bin
+cd ../Receiver && java Receiver.java  # Output: large_out.bin
 
 # Verify with checksums
 sha256sum large.bin large_out.bin
@@ -381,11 +381,11 @@ sha256sum large.bin large_out.bin
 ### Test Case 3: Authentication Failure
 
 ```bash
-cd Sender && java Sender.Sender
+cd Sender && java Sender.java
 # Input: test.txt
 # Invert: Y  ← This corrupts the MAC
 
-cd ../Receiver && java Receiver.Receiver
+cd ../Receiver && java Receiver.java
 # Output: out.txt
 ```
 
@@ -411,21 +411,21 @@ echo "Running Cryptographic System Tests"
 # Test 1: Text file
 echo "Test 1: Small text file"
 echo "Hello World" > test1.txt
-cd Sender && java Sender.Sender <<< $'test1.txt\nN'
-cd ../Receiver && java Receiver.Receiver <<< 'out1.txt'
+cd Sender && java Sender.java <<< $'test1.txt\nN'
+cd ../Receiver && java Receiver.java <<< 'out1.txt'
 diff out1.txt ../Sender/test1.txt && echo " Test 1 PASSED"
 
 # Test 2: Binary file
 echo "Test 2: Binary file (1MB)"
 dd if=/dev/urandom of=test2.bin bs=1K count=1024 2>/dev/null
-cd Sender && java Sender.Sender <<< $'test2.bin\nN'
-cd ../Receiver && java Receiver.Receiver <<< 'out2.bin'
+cd Sender && java Sender.java <<< $'test2.bin\nN'
+cd ../Receiver && java Receiver.java <<< 'out2.bin'
 diff out2.bin ../Sender/test2.bin && echo "Test 2 PASSED"
 
 # Test 3: MAC verification failure
 echo "Test 3: MAC tampering detection"
-cd Sender && java Sender.Sender <<< $'test1.txt\nY'
-cd ../Receiver && java Receiver.Receiver <<< 'out3.txt' | grep "FAILED" && echo "Test 3 PASSED"
+cd Sender && java Sender.java <<< $'test1.txt\nY'
+cd ../Receiver && java Receiver.java <<< 'out3.txt' | grep "FAILED" && echo "Test 3 PASSED"
 
 echo "All tests completed!"
 ```
@@ -444,7 +444,7 @@ echo "All tests completed!"
 1. **Terminal 1 - KeyGen**
    ```bash
    cd KeyGen
-   java KeyGen.KeyGen
+   java KeyGen.java
    # Show generated key files
    ls -lh *.key
    ```
@@ -455,7 +455,7 @@ echo "All tests completed!"
    # Copy keys
    cp ../KeyGen/YPublic.key ../KeyGen/symmetric.key .
    # Encrypt demo file
-   java Sender.Sender
+   java Sender.java
    # Show output files and MAC
    ls -lh message.* kxy.rsacipher
    ```
@@ -467,7 +467,7 @@ echo "All tests completed!"
    cp ../Sender/message.* ../Sender/kxy.rsacipher .
    cp ../KeyGen/YPrivate.key .
    # Decrypt and verify
-   java Receiver.Receiver
+   java Receiver.java
    # Show verification result
    ```
 
@@ -528,6 +528,6 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 
 **If you found this project helpful, please consider giving it a star!**
 
-Made with JAVA by Brian Flores
+Made with Java by Brian Flores
 
 </div>
