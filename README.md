@@ -13,7 +13,6 @@ A Java implementation of a secure communication system demonstrating hybrid encr
 - [Usage Guide](#-usage-guide)
 - [Security Concepts](#-security-concepts)
 - [Testing](#-testing)
-- [Demo](#-demo)
 - [Learning Outcomes](#-learning-outcomes)
 
 ## Overview
