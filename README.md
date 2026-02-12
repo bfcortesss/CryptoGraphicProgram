@@ -430,56 +430,6 @@ cd ../Receiver && java Receiver.java <<< 'out3.txt' | grep "FAILED" && echo "Tes
 echo "All tests completed!"
 ```
 
-## Demo
-
-### Demo Preparation Checklist
-
-- [ ] All programs compiled without errors
-- [ ] Test files prepared (small text, large binary)
-- [ ] Three terminal windows open
-- [ ] Practice run completed successfully
-
-### Live Demo Flow
-
-1. **Terminal 1 - KeyGen**
-   ```bash
-   cd KeyGen
-   java KeyGen.java
-   # Show generated key files
-   ls -lh *.key
-   ```
-
-2. **Terminal 2 - Sender**
-   ```bash
-   cd Sender
-   # Copy keys
-   cp ../KeyGen/YPublic.key ../KeyGen/symmetric.key .
-   # Encrypt demo file
-   java Sender.java
-   # Show output files and MAC
-   ls -lh message.* kxy.rsacipher
-   ```
-
-3. **Terminal 3 - Receiver**
-   ```bash
-   cd Receiver
-   # Copy encrypted files
-   cp ../Sender/message.* ../Sender/kxy.rsacipher .
-   cp ../KeyGen/YPrivate.key .
-   # Decrypt and verify
-   java Receiver.java
-   # Show verification result
-   ```
-
-4. **Verification**
-   ```bash
-   # Compare original and decrypted files
-   diff [original_file] [decrypted_file]
-   # Display hex dumps
-   xxd [original_file] | head
-   xxd [decrypted_file] | head
-   ```
-
 ## Learning Outcomes
 
 ### Technical Skills Developed
