@@ -524,13 +524,6 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 **Brian Flores**
 - GitHub: [@bfcortesss](https://github.com/bfcortesss)
 
-##  Acknowledgments
-
-- MSU Denver CS 3750 Course
-- Dr. Weiying Zhu - Course Instructor
-- Java Cryptography Architecture (JCA) Documentation
----
-
 <div align="center">
 
 **If you found this project helpful, please consider giving it a star!**
