@@ -60,18 +60,18 @@ This project implements a complete **digital envelope** system with **keyed hash
 │       Kxy    │                                  │              │
 └──────┬───────┘                                  └──────▲───────┘
        │                                                 │
-       │  1. Compute MAC = SHA256(Kxy||M||Kxy)         │
-       │  2. Encrypt message: C = AES-Enc(M, Kxy)      │
-       │  3. Wrap key: K = RSA-Enc(Kxy, Ky+)           │
+       │  1. Compute MAC = SHA256(Kxy||M||Kxy)           │
+       │  2. Encrypt message: C = AES-Enc(M, Kxy)        │
+       │  3. Wrap key: K = RSA-Enc(Kxy, Ky+)             │
        │                                                 │
        └─────────────────────────────────────────────────┘
                  Transmit: {C, K, MAC}
        
        ┌─────────────────────────────────────────────────┐
        │                                                 │
-       │  4. Unwrap key: Kxy = RSA-Dec(K, Ky-)          │
-       │  5. Decrypt: M = AES-Dec(C, Kxy)               │
-       │  6. Verify: SHA256(Kxy||M||Kxy) == MAC ?       │
+       │  4. Unwrap key: Kxy = RSA-Dec(K, Ky-)           │
+       │  5. Decrypt: M = AES-Dec(C, Kxy)                │
+       │  6. Verify: SHA256(Kxy||M||Kxy) == MAC ?        │
        │                                                 │
        └─────────────────────────────────────────────────┘
 ```
