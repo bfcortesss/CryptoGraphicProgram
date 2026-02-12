@@ -110,7 +110,7 @@ This project implements a complete **digital envelope** system with **keyed hash
    Structure: 32-byte SHA-256 hash
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 CryptoGraphicProgram/
@@ -285,7 +285,7 @@ java Receiver.Receiver
 
 # 5. Verify files match
 diff decrypted.txt ../Sender/test_message.txt
-# No output = files are identical ✅
+# No output = files are identical 
 ```
 
 ## Security Concepts
@@ -420,17 +420,17 @@ echo "Test 2: Binary file (1MB)"
 dd if=/dev/urandom of=test2.bin bs=1K count=1024 2>/dev/null
 cd Sender && java Sender.Sender <<< $'test2.bin\nN'
 cd ../Receiver && java Receiver.Receiver <<< 'out2.bin'
-diff out2.bin ../Sender/test2.bin && echo "✅ Test 2 PASSED"
+diff out2.bin ../Sender/test2.bin && echo "Test 2 PASSED"
 
 # Test 3: MAC verification failure
 echo "Test 3: MAC tampering detection"
 cd Sender && java Sender.Sender <<< $'test1.txt\nY'
-cd ../Receiver && java Receiver.Receiver <<< 'out3.txt' | grep "FAILED" && echo "✅ Test 3 PASSED"
+cd ../Receiver && java Receiver.Receiver <<< 'out3.txt' | grep "FAILED" && echo "Test 3 PASSED"
 
-echo "🎉 All tests completed!"
+echo "All tests completed!"
 ```
 
-## 🎬Demo
+## Demo
 
 ### Demo Preparation Checklist
 
@@ -515,7 +515,7 @@ This project was developed as part of CS 3750: Computer and Network Security at 
 - [ ] Add network socket communication
 - [ ] Implement certificate-based authentication
 
-## 📄 License
+##  License
 
 This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
 
